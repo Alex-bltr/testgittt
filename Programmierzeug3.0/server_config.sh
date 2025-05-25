@@ -72,14 +72,20 @@ for ((f=0; f<2; f++)); do
 done
 
 # Firewall setup
-sudo apt install -y OpenSSH 
-sudo apt install -y ufw
+sudo apt update
+sudo apt install -y openssh-server ufw
+
+# UFW zurücksetzen und Grundregeln setzen
 sudo ufw reset
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
+
+# Erlaubte Dienste freigeben
 sudo ufw allow OpenSSH
 sudo ufw allow 'Nginx Full'
-sudo ufw enable
+
+# UFW aktivieren (Bestätigung wird automatisch mit "y" beantwortet)
+echo "y" | sudo ufw enable
 
 # Benutzer anlegen und in Gruppe einfügen
 sudo adduser --disabled-password --gecos "" "$mainusr"
