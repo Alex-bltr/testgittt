@@ -69,7 +69,8 @@ sudo systemctl restart php8.3-fpm
 sudo rm -rf /etc/nginx/nginx.conf
 cd /etc/nginx
 
-curl -f -O https://raw.githubusercontent.com/Alex-bltr/testgittt/main/Programmierzeug3.0/nginx.conf || { echo "nginx.conf Download failed"; exit 1; }
+curl -O https://raw.githubusercontent.com/Alex-bltr/testgittt/main/Programmierzeug3.0/nginx.conf
+
 
 sudo rm /etc/nginx/sites-available/default
 sudo rm /etc/nginx/sites-enabled/default
