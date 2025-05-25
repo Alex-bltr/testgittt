@@ -72,7 +72,7 @@ for ((f=0; f<2; f++)); do
 done
 
 # Firewall setup
-sudo apt install -y OpenSSH 
+sudo apt install OpenSSH
 sudo apt install -y ufw
 sudo ufw reset
 sudo ufw default deny incoming
