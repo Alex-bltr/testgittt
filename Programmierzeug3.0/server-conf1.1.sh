@@ -40,7 +40,7 @@ file_line_check() {
   new_line="$3"
 
   if grep -q "$keyword" "$file"; then
-    sed -i "/$keyword/c\\$new_line" "$file"
+    sudo sed -i "/$keyword/c\\$new_line" "$file"
   fi
 }
 
@@ -54,11 +54,11 @@ for ((f=0; f<2; f++)); do
   filename="${file[$f]}"
   if [[ "$filename" == *php.ini ]]; then
     for ((k=0; k<2; k++)); do
-      file_line_check "${keywords[4+$k]}" "$filename" "${new_lines[4+$k]}"
+      sudo file_line_check "${keywords[4+$k]}" "$filename" "${new_lines[4+$k]}"
     done
   else
     for ((k=0; k<4; k++)); do
-      file_line_check "${keywords[$k]}" "$filename" "${new_lines[$k]}"
+      sudo file_line_check "${keywords[$k]}" "$filename" "${new_lines[$k]}"
     done
   fi
 done
