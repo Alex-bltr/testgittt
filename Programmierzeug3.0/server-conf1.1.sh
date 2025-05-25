@@ -10,7 +10,8 @@ sudo ufw reset
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw allow OpenSSH
-echo "y" | sudo ufw enable
+sudo ufw --force enable
+
 
 # Benutzer anlegen
 sudo adduser --disabled-password --gecos "" "$mainusr"
