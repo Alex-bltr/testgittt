@@ -67,9 +67,9 @@ sudo systemctl restart php8.3-fpm
 
 # Nginx config neu laden
 sudo rm -rf /etc/nginx/nginx.conf
-cd /etc/nginx
+sudo cd /etc/nginx
 
-curl -O https://raw.githubusercontent.com/Alex-bltr/testgittt/main/Programmierzeug3.0/nginx.conf
+sudo curl -O https://raw.githubusercontent.com/Alex-bltr/testgittt/main/Programmierzeug3.0/nginx.conf
 
 
 sudo rm /etc/nginx/sites-available/default
@@ -77,10 +77,10 @@ sudo rm /etc/nginx/sites-enabled/default
 
 sudo systemctl restart nginx
 sudo nginx -s reload
-
+sudo cd ~
 # WP-CLI installieren
-curl -f -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar || { echo "WP-CLI Download failed"; exit 1; }
-chmod +x wp-cli.phar
+sudo curl -f -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar || { echo "WP-CLI Download failed"; exit 1; }
+sudo chmod +x wp-cli.phar
 sudo mv wp-cli.phar /usr/local/bin/wp
 
 # MySQL Server installieren
@@ -99,8 +99,8 @@ sudo mysql -e "CREATE USER '$mainusr'@'localhost' IDENTIFIED BY '$dbpass';"
 sudo mysql -e "GRANT ALL PRIVILEGES ON globex.* TO '$mainusr'@'localhost';"
 sudo mysql -e "FLUSH PRIVILEGES;"
 
-cd /var/www/html
-wp core download
+sudo cd /var/www/html
+sudo wp core download
 sudo chown -R www-data:www-data /var/www/html
 
 echo "Server config successful"
